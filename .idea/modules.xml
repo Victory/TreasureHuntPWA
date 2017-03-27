@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/TreasureHuntPWA.iml" filepath="$PROJECT_DIR$/.idea/TreasureHuntPWA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontvue/frontvue.iml" filepath="$PROJECT_DIR$/frontvue/frontvue.iml" />
+    </modules>
+  </component>
+</project>
