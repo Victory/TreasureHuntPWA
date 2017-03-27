@@ -7,6 +7,11 @@ A Treasure Hunt Orogressive Web App (PWA) Built with [Vue](https://vuejs.org/) a
 #### Node
 You will need to have NVM installed. You can download and install nvm
  by following the instructions [here](https://github.com/creationix/nvm).
+
+Run 
+
+    nvm install --lts 6
+    nvm use --lts
  
 ### Java
 You will need to have java8 jdk in your JAVA_HOME
