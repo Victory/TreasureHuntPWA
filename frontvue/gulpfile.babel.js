@@ -4,6 +4,10 @@ import gulp from 'gulp';
 import del from 'del';
 import shell from 'gulp-shell';
 
+gulp.task('upgrade', shell.task([
+  "yarn"
+]));
+
 gulp.task('dev', shell.task([
   "yarn run dev"
 ]));

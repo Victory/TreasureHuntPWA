@@ -3,10 +3,11 @@
 > A Frontend to TreasureHuntPWA
 
 ## Build Setup
+All the npm commands are run via gulp and yarn
 
 ``` bash
 # install dependencies
-npm install
+yarn 
 
 # serve with hot reload at localhost:8080
 gulp dev
@@ -15,13 +16,14 @@ gulp dev
 gulp build
 
 # build for production and view the bundle analyzer report
-npm run build --report
+currently disabled
+#npm run build --report
 
 # run unit tests
 gulp unit
 
 # run all tests
-npm test
+gulp test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
