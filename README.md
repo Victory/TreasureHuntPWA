@@ -12,7 +12,8 @@ Run
 
     nvm install --lts 6
     nvm use --lts
- 
+    npm install --global gulp-cli
+    
 ### Java
 You will need to have java8 jdk in your JAVA_HOME
 
