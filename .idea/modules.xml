@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/TreasureHuntPWA.iml" filepath="$PROJECT_DIR$/.idea/TreasureHuntPWA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/devproxy/devproxy.iml" filepath="$PROJECT_DIR$/devproxy/devproxy.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontvue/frontvue.iml" filepath="$PROJECT_DIR$/frontvue/frontvue.iml" />
     </modules>
   </component>
