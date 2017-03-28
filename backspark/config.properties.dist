@@ -1,0 +1,7 @@
+# true if runing in dev mode
+isDev=true
+
+mongo.hostname=127.0.0.1
+mongo.port=27017
+
+

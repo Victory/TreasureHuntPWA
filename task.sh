@@ -18,12 +18,16 @@ usage() {
 
 runFront() {
     cd frontvue
+    pwd
+    echo "Running: gulp $1 $2 $3 $4 $5"
     gulp $1 $2 $3 $4 $5
     exit 0
 }
 
 runBack() {
     cd backspark
+    pwd
+    echo "Running: ./gradlew $1 $2 $3 $4 $5"
     ./gradlew $1 $2 $3 $4 $5
     exit 0
 }
