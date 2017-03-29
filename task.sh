@@ -3,10 +3,7 @@
 cd $(dirname $0)
 codeBase=$1
 
-source javaHome.sh
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+source config-paths.sh
 
 echo "This script requires NVM and jdk8 be installed."
 echo "Using nvm: $NVM_DIR"
@@ -102,6 +99,13 @@ startDev() {
 }
 
 runInit() {
+    npm install --global gulp-cli
+    npm install --global yarn
+
+    cd ././devproxy/
+    npm upgrade
+    yarn
+
     cd frontvue
     npm upgrade
     yarn
