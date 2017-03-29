@@ -102,11 +102,11 @@ runInit() {
     npm install --global gulp-cli
     npm install --global yarn
 
-    cd ././devproxy/
+    cd ./devproxy
     npm upgrade
     yarn
 
-    cd frontvue
+    cd ../frontvue
     npm upgrade
     yarn
 
