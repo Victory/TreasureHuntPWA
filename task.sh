@@ -3,6 +3,8 @@
 cd $(dirname $0)
 codeBase=$1
 
+source javaHome.sh
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
