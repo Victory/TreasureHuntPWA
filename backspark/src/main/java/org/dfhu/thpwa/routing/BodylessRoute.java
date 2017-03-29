@@ -9,13 +9,13 @@ import spark.Spark;
  * redirecting
  */
 public abstract class BodylessRoute extends RouteAdder<BodylessRoute> implements Route {
-    public abstract void updateResponse(Request req, Response res);
+  public abstract void updateResponse(Request req, Response res);
 
-    @Override
-    public void doPost(RouteAdder<BodylessRoute> routeAdder) {
-        Spark.post(getPath(), (req, res) -> {
-            updateResponse(req, res);
-            return "";
-        });
-    }
+  @Override
+  public void doPost(RouteAdder<BodylessRoute> routeAdder) {
+    Spark.post(getPath(), (req, res) -> {
+      updateResponse(req, res);
+      return "";
+    });
+  }
 }
