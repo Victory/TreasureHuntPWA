@@ -40,3 +40,4 @@ jspm_packages
 /backspark/.gradle/
 /backspark/config.properties
 /config-paths.sh
+/backspark/build/
