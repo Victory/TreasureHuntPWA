@@ -5,6 +5,13 @@
 # JAVA_HOME=/path/to/java/jdk8
 export JAVA_HOME
 
+# The following will create properties file for backspark
+
+# true to run in dev mode
+BS_ISDEV="true"
+# the fully qualified mongodb url
+BS_MONGODB="mongodb://192.168.56.101/testinguri"
+
 # nvm is required install install from https://github.com/creationix/nvm
 # Normally this default should work for NVM_DIR otherwise you can edit the path
 # update to NVM_DIR

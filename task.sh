@@ -98,7 +98,7 @@ startDev() {
     pkill ${thisPid}
 }
 
-runInit() {
+runUpgrade() {
     npm install --global gulp-cli
     npm install --global yarn
 
@@ -111,13 +111,22 @@ runInit() {
     yarn
 
     cd ../backspark
+    buildConfigProperties
     ./gradlew build
 }
 
+buildConfigProperties() {
+    outFile="config.properties"
+    echo "# This files is created by tasks.sh upgrade" | tee ${outFile}
+    echo "" | tee -a ${outFile}
+    echo "isDev=$BS_ISDEV" | tee -a ${outFile}
+    echo "" | tee -a ${outFile}
+    echo "mongoUri=$BS_MONGODB" | tee -a ${outFile}
+}
 
 case "$codeBase" in
-    init)
-        runInit
+    upgrade)
+        runUpgrade
         ;;
     front)
         runFront $2 $3 $4 $5 $6
