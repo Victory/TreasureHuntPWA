@@ -17,14 +17,21 @@ npmVersion=$(npm --version)
 echo "npm version 0.21.3 or later required using $npmVersion "
 
 usage() {
-    echo "$0 front [command]"
-    echo "$0 back [command]"
+    echo ""
+    echo ""
+    echo "USAGE: "
+    echo "    $0 front [command]"
+    echo "    $0 back [command]"
+    echo "    $0 upgrade"
+    echo "    $0 startdev"
 
+    echo ""
     echo " ==== examples === "
-    echo "To run `cd frontvue; gulp run dev`"
-    echo "$0 front dev"
-    echo "To run `cd backspark; gradlew run`"
-    echo "$0 back run"
+    echo ""
+    echo "To run 'cd frontvue; gulp run dev'"
+    echo "    $0 front dev"
+    echo "To run 'cd backspark; ./gradlew run'"
+    echo "    $0 back run"
     exit 1
 }
 
@@ -84,8 +91,8 @@ startDev() {
     echo ""
     echo ""
     op="keepgoing"
-    while [ "$op" != "quit" ]; do
-        echo "Now Serving type 'quit' then ENTER to exit"
+    while [ "$op" != "q" ]; do
+        echo "Now Serving type 'q' then ENTER to exit"
         read op
     done
 
@@ -137,7 +144,7 @@ case "$codeBase" in
     startdev)
         startDev
         ;;
-    *)
+    *|help)
         usage;
         ;;
 esac
