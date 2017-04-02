@@ -35,14 +35,12 @@ a lost process it can be `kill`
 |-----------|------|
 | frontvue  | 8080 |
 | backspark | 4567 |
-| devproxy  | 3000 |
 
 
 Kill commands
 
     kill $(ps aux | grep node | grep [d]ev-server.js | awk '{print $2}')
     kill $(ps aux | grep gradle-wrapper.jar | grep [r]un | awk '{print $2}') 
-    kill $(ps aux | grep [d]ev.js | awk '{print $2}')
 
 #### Trouble Shooting
 

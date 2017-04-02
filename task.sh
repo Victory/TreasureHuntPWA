@@ -63,13 +63,7 @@ dieNotZero() {
 startDev() {
     thisPid=$$
 
-    cd devproxy;
-    node dev.js &
-    proxyPid=$!
-    result=$?
-    dieNotZero $?
-
-    cd ../frontvue
+    cd frontvue
     node build/dev-server.js &
     frontPid=$!
     dieNotZero $?
@@ -84,7 +78,6 @@ startDev() {
 
     echo "backPid $backPid"
     echo "frontPid $frontPid"
-    echo "proxyPid $proxyPid"
 
     echo ""
     echo ""
@@ -96,8 +89,6 @@ startDev() {
         read op
     done
 
-    kill -9 ${proxyPid}
-    sleep .5
     kill -9 ${frontPid}
     sleep .5
     kill -9 ${backPid}
@@ -109,11 +100,7 @@ runUpgrade() {
     npm install --global gulp-cli
     npm install --global yarn
 
-    cd ./devproxy
-    npm upgrade
-    yarn
-
-    cd ../frontvue
+    cd frontvue
     npm upgrade
     yarn
 
