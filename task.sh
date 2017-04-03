@@ -24,6 +24,7 @@ usage() {
     echo "    $0 back [command]"
     echo "    $0 upgrade"
     echo "    $0 startdev"
+    echo "    $0 startdist"
 
     echo ""
     echo " ==== examples === "
@@ -59,6 +60,7 @@ dieNotZero() {
     echo "Existing to do error"
     exit 1;
 }
+
 
 startDev() {
     thisPid=$$
@@ -96,9 +98,47 @@ startDev() {
     pkill ${thisPid}
 }
 
+startDist() {
+    cd backspark
+    ./gradlew run &
+    backPid=$!
+    dieNotZero $?
+    cd ..
+
+    sleep 15
+    echo ""
+    echo " === starting frontvue === "
+    echo ""
+
+    cd frontvue
+    gulp build
+    cd dist
+    http-server -p 3030 &
+    frontPid=$!
+    dieNotZero $?
+
+    sleep 5
+
+    echo "backPid $backPid"
+    echo "frontPid $frontPid"
+    echo ""
+    op="keepgoing"
+    while [ "$op" != "q" ]; do
+        echo "Now Serving type 'q' then ENTER to exit"
+        read op
+    done
+
+    kill -9 ${frontPid}
+    sleep .5
+    kill -9 ${backPid}
+    sleep 1
+    pkill ${thisPid}
+}
+
 runUpgrade() {
     npm install --global gulp-cli
     npm install --global yarn
+    npm install --global http-server
 
     cd frontvue
     npm upgrade
@@ -130,6 +170,9 @@ case "$codeBase" in
         ;;
     startdev)
         startDev
+        ;;
+    startdist)
+        startDist
         ;;
     *|help)
         usage;

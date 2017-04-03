@@ -10,7 +10,7 @@ module.exports = {
     extract: isProduction,
     postcss: [
       require('postcss-cssnext')(),
-      require('postcss-autoprefixer')()
+      require('autoprefixer')()
     ]
   })
 }
