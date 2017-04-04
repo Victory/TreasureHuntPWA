@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store';
 
 var ISDEV = (process.env.NODE_ENV === 'development');
 
@@ -13,12 +14,13 @@ var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
   )
 )
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
