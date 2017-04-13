@@ -97,12 +97,14 @@ var webpackConfig = merge(baseWebpackConfig, {
       }
     ]),
     // pre prender
+    /** disable preprender as it is unstable
     new PrerenderSpaPlugin(
       // Absolute path to compiled SPA
       path.join(__dirname, '../dist'),
       // List of routes to prerender
       [ '/', '/about', '/contact' ]
     )
+     */
   ]
 })
 
