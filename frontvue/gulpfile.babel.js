@@ -47,4 +47,4 @@ gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {
   dot: true
 }));
 
-gulp.task('build', ['builddist']);
+gulp.task('build', ['builddist', 'generate-service-worker']);
