@@ -6,8 +6,13 @@
 </template>
 
 <script>
+import store from '../store/index';
+
 export default {
   name: 'contact',
+  beforeMount () {
+    store.state.pagesVisited += 1;
+  },
   data () {
     return {
       msg: 'This is the CONTACT page'
