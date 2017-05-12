@@ -36,7 +36,6 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-/devproxy/node_modules/
 /backspark/.gradle/
 /backspark/config.properties
 /config-paths.sh
