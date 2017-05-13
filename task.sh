@@ -8,13 +8,16 @@ source config-paths.sh
 echo "This script requires NVM and jdk8 be installed."
 echo "Using nvm: $NVM_DIR"
 echo "Using JAVA_HOME: $JAVA_HOME"
-nvm install 6 --lts
-nvm use 6 --lts
 
-nodeVersion=$(node --version)
-echo "node version v6.10 or later needed using $nodeVersion"
-npmVersion=$(npm --version)
-echo "npm version 0.21.3 or later required using $npmVersion "
+nvm use 6 --lts
+RESULT=$?
+if [ "$RESULT" -ne "0" ]; then
+    nvm install 6 --lts
+    nodeVersion=$(node --version)
+    echo "node version v6.10 or later needed using $nodeVersion"
+    npmVersion=$(npm --version)
+    echo "npm version 0.21.3 or later required using $npmVersion "
+fi
 
 usage() {
     echo ""

@@ -6,6 +6,7 @@
       <li><router-link :to="{name: 'contact'}">Contact US</router-link></li>
       <li><router-link :to="{name: 'about'}">About</router-link></li>
       <li><router-link :to="{name: 'privacy'}">Privacy</router-link></li>
+      <li><router-link :to="{name: 'login'}">Login</router-link></li>
     </ul>
     <p>Pages Visited: {{ $store.state.pagesVisited }}</p>
   </div>
