@@ -5,7 +5,7 @@ import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Privacy from '@/components/Privacy'
 import NotFound from '@/components/NotFound'
-import Login from '@/components/Login'
+import LoginAndRegister from '@/components/LoginAndRegister'
 
 Vue.use(Router)
 
@@ -26,8 +26,8 @@ var router = new Router({
     },
     {
       path: '/login',
-      name: 'login',
-      component: Login,
+      name: 'login-and-register',
+      component: LoginAndRegister,
       meta: {title: 'Login'}
     },
     {

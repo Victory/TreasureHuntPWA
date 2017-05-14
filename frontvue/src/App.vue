@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <div id="flash"></div>
     <router-view></router-view>
     <main-nav></main-nav>
   </div>
@@ -13,6 +14,11 @@
     name: 'app',
     components: {
       MainNav
+    },
+    methods: {
+      showFlash (msg) {
+        console.log(msg);
+      }
     }
   }
 </script>
