@@ -30,7 +30,6 @@ export default {
   methods: {
     submitLogin (evt) {
       evt.preventDefault();
-      this.$http.get();
 
       this.$http[evt.target.method]('/api/login', this.login)
         .then(data => {
