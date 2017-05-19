@@ -4,6 +4,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import org.dfhu.thpwa.approutes.GetUserInfoRoute;
 import org.dfhu.thpwa.approutes.LoginRoute;
+import org.dfhu.thpwa.approutes.RegisterRoute;
 import org.dfhu.thpwa.context.ThConfig;
 import org.dfhu.thpwa.routing.Route;
 import org.mongodb.morphia.Datastore;
@@ -37,6 +38,7 @@ public class Application {
   private void setRoutes(final ThConfig config) {
     addRoute(new GetUserInfoRoute());
     addRoute(new LoginRoute());
+    addRoute(new RegisterRoute());
   }
 
   private Datastore buildDatastore(ThConfig config) {
