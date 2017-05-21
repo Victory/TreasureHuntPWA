@@ -19,4 +19,8 @@ public class ThSession {
   public Response getRes() {
     return res;
   }
+
+  /** Stub not implemented */
+  public void logout() {
+  }
 }
