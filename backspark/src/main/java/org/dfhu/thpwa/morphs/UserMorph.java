@@ -1,6 +1,7 @@
 package org.dfhu.thpwa.morphs;
 
 import org.bson.types.ObjectId;
+import org.dfhu.thpwa.auth.UserGroup;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 import org.mongodb.morphia.annotations.IndexOptions;
@@ -14,6 +15,7 @@ public class UserMorph {
   public ObjectId id;
   @Indexed(options = @IndexOptions(unique = true))
   public String userName;
-  public Set<String> groups;
+  public String email;
+  public Set<UserGroup> groups;
   public String password;
 }

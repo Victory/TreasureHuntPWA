@@ -6,16 +6,17 @@ import org.dfhu.thpwa.approutes.GetUserInfoRoute;
 import org.dfhu.thpwa.approutes.LoginRoute;
 import org.dfhu.thpwa.approutes.RegisterRoute;
 import org.dfhu.thpwa.context.ThConfig;
+import org.dfhu.thpwa.morphs.query.UserQuery;
 import org.dfhu.thpwa.routing.Route;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 
 import java.util.Properties;
 
-public class Application {
+class Application {
   private final Properties properties;
 
-  public Application(Properties properties) {
+  Application(Properties properties) {
     this.properties = properties;
   }
 
@@ -23,10 +24,11 @@ public class Application {
     route.addRoute();
   }
 
-  public void init() {
+  void init() {
     ThConfig config = getConfig();
     Datastore datastore = buildDatastore(config);
-    setRoutes(config);
+    UserQuery userQuery = new UserQuery(datastore);
+    setRoutes(config, datastore, userQuery);
   }
 
   private ThConfig getConfig() {
@@ -35,10 +37,10 @@ public class Application {
     return new ThConfig(isDev, mongoUri);
   }
 
-  private void setRoutes(final ThConfig config) {
+  private void setRoutes(final ThConfig config, Datastore datastore, UserQuery userQuery) {
     addRoute(new GetUserInfoRoute());
     addRoute(new LoginRoute());
-    addRoute(new RegisterRoute());
+    addRoute(new RegisterRoute(datastore, userQuery));
   }
 
   private Datastore buildDatastore(ThConfig config) {

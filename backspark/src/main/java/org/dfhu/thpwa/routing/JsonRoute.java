@@ -38,4 +38,10 @@ public abstract class JsonRoute extends RouteAdder<JsonRoute> implements Route {
   private ThSession getSession(Request req, Response res) {
     return new ThSession(req, res);
   }
+
+  protected  <T extends JsonRequest> T getJsonParams(ThSession session, Class<T> paramsClass) {
+    return new Gson().fromJson(session.getReq().body(), paramsClass);
+  }
+
+  protected interface JsonRequest {}
 }
