@@ -8,6 +8,7 @@ import org.dfhu.thpwa.approutes.RegisterRoute;
 import org.dfhu.thpwa.context.ThConfig;
 import org.dfhu.thpwa.morphs.query.UserQuery;
 import org.dfhu.thpwa.routing.Route;
+import org.dfhu.thpwa.util.PasswordHash;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 
@@ -28,7 +29,8 @@ class Application {
     ThConfig config = getConfig();
     Datastore datastore = buildDatastore(config);
     UserQuery userQuery = new UserQuery(datastore);
-    setRoutes(config, datastore, userQuery);
+    PasswordHash passwordHash = new PasswordHash();
+    setRoutes(config, datastore, userQuery, passwordHash);
   }
 
   private ThConfig getConfig() {
@@ -37,10 +39,10 @@ class Application {
     return new ThConfig(isDev, mongoUri);
   }
 
-  private void setRoutes(final ThConfig config, Datastore datastore, UserQuery userQuery) {
+  private void setRoutes(final ThConfig config, Datastore datastore, UserQuery userQuery, PasswordHash passwordHash) {
     addRoute(new GetUserInfoRoute());
-    addRoute(new LoginRoute());
-    addRoute(new RegisterRoute(datastore, userQuery));
+    addRoute(new LoginRoute(passwordHash, userQuery));
+    addRoute(new RegisterRoute(passwordHash, userQuery));
   }
 
   private Datastore buildDatastore(ThConfig config) {

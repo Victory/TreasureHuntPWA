@@ -3,7 +3,7 @@
     <form method="POST" class="login-form" v-on:submit="submitLogin">
       <div class="form-input">
         <label>Username:
-          <input type="text" v-model="login.username">
+          <input type="text" v-model="login.userName">
         </label>
       </div>
       <div class="form-input">
@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       login: {
-        username: '',
+        userName: '',
         password: ''
       }
     }

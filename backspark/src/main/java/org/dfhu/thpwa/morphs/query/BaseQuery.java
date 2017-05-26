@@ -10,6 +10,10 @@ public class BaseQuery {
     this.datastore = datastore;
   }
 
+  void save(Object morph) {
+    datastore.save(morph);
+  }
+
   protected ObjectId toObjectId(String id) {
     return new ObjectId(id);
   }

@@ -9,17 +9,16 @@ import org.dfhu.thpwa.routing.JsonResponse;
 import org.dfhu.thpwa.routing.JsonRoute;
 import org.dfhu.thpwa.routing.Route;
 import org.dfhu.thpwa.util.PasswordHash;
-import org.mongodb.morphia.Datastore;
 
 import java.util.HashSet;
 
 public class RegisterRoute extends JsonRoute implements Route {
 
-  private final Datastore datastore;
   private final UserQuery userQuery;
+  private final PasswordHash passwordHash;
 
-  public RegisterRoute(Datastore datastore, UserQuery userQuery) {
-    this.datastore = datastore;
+  public RegisterRoute(PasswordHash passwordHash, UserQuery userQuery) {
+    this.passwordHash = passwordHash;
     this.userQuery = userQuery;
   }
 
@@ -46,13 +45,12 @@ public class RegisterRoute extends JsonRoute implements Route {
     UserMorph newUser = new UserMorph();
     newUser.userName = params.userName;
     newUser.email = params.email;
-    PasswordHash passwordHash = new PasswordHash();
     newUser.password = passwordHash.getHashString(params.password);
     HashSet<UserGroup> userGroups = new HashSet<>();
     userGroups.add(UserGroup.USER);
     newUser.groups = userGroups;
     try {
-      datastore.save(newUser);
+      userQuery.save(newUser);
     } catch (DuplicateKeyException e) {
       return new JsonResponse(false, "User already exists", "duplicate");
     }
