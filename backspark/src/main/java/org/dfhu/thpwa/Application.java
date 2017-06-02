@@ -6,6 +6,7 @@ import org.dfhu.thpwa.approutes.GetUserInfoRoute;
 import org.dfhu.thpwa.approutes.LoginRoute;
 import org.dfhu.thpwa.approutes.RegisterRoute;
 import org.dfhu.thpwa.context.ThConfig;
+import org.dfhu.thpwa.context.ThSessionProvider;
 import org.dfhu.thpwa.morphs.query.UserQuery;
 import org.dfhu.thpwa.routing.Route;
 import org.dfhu.thpwa.util.PasswordHash;
@@ -17,11 +18,14 @@ import java.util.Properties;
 class Application {
   private final Properties properties;
 
+  private final ThSessionProvider thSessionProvider = new ThSessionProvider();
+
   Application(Properties properties) {
     this.properties = properties;
   }
 
-  private static void addRoute(Route route) {
+  private void addRoute(Route route) {
+    route.setThSessionProvider(thSessionProvider);
     route.addRoute();
   }
 

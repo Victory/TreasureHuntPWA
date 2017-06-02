@@ -7,7 +7,7 @@ public class ThSession {
   private final Request req;
   private final Response res;
 
-  public ThSession(Request req, Response res) {
+  private ThSession(Request req, Response res) {
     this.req = req;
     this.res = res;
   }
@@ -22,5 +22,9 @@ public class ThSession {
 
   /** Stub not implemented */
   public void logout() {
+  }
+
+  static ThSession newInstance(Request req, Response res) {
+    return new ThSession(req, res);
   }
 }
